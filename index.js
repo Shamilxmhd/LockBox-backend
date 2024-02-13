@@ -12,6 +12,7 @@ lbServer.use(cors())
 // middlewear
 lbServer.use(express.json())
 lbServer.use(router)
+lbServer.use('/uploads',express.static('./uploads'))
 
 const PORT = 3000
 lbServer.listen(PORT, () => {

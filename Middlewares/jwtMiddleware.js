@@ -1,23 +1,22 @@
 const jwt = require('jsonwebtoken')
 
-// jwt middleware
+// jwtMiddleware
 const jwtMiddleware = (req, res, next) => {
-    console.log('Inside JWT Middleware');
+    console.log("Inside JWT Middleware");
 
     try {
-        const token = req.Headers['authorization'].split(' ')[1]
+        const token = req.headers['authorization'].split(" ")[1]
         console.log(token);
         if (token) {
-            const jwtResponse = jwt.verify(token, process.env.jwt_secret)
-            console.log(jwtResponse);
-            req.payload = jwtResponse.userId
+            const jwtresponse = jwt.verify(token, process.env.jwt_secret)
+            req.payload = jwtresponse.userId
             next()
         } else {
-            res.status(401).json('Please provide Token')
+            res.status(401).json("Please Provide Token!!!")
         }
-    } catch (err) {
-        res.status(403).json('Please Login')
+    } catch {
+        res.status(403).json("Please Login!!!")
     }
 }
 
- module.exports = jwtMiddleware
+module.exports = jwtMiddleware  
