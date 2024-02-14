@@ -13,7 +13,8 @@ router.post('/login',userController.login)
 // addCard
 router.post('/add-card',jwtMiddleware,cardController.addCards)
 
-
+// get user cards
+router.get('/user-cards',jwtMiddleware,cardController.getUserCards)
 
 
 

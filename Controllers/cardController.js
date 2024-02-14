@@ -1,12 +1,13 @@
 const cards = require("../Model/cardModel");
 
+
 // add cards
 exports.addCards = async (req, res) => {
     console.log("Inside Add Card API");
-    const { itemName, cardholderName, cardNumber, month, year,cvv } = req.body
-   const userId = req.payload
-   console.log(req.body);
-   console.log(userId);
+    const { itemName, cardholderName, cardNumber, month, year, cvv } = req.body
+    const userId = req.payload
+    console.log(req.body);
+    console.log(userId);
     //console.log(title,overview,languages,github,website,projectImage,userId);
     try {
         const existingCard = await cards.findOne({ cardNumber })
@@ -22,4 +23,17 @@ exports.addCards = async (req, res) => {
     } catch (err) {
         res.status(401).json(err)
     }
+}
+
+// get userCards
+exports.getUserCards = async (req, res) => {
+    const userId = req.payload
+    try {
+        const userCards = await cards.find({ userId })
+        res.status(200).json(userCards)
+
+    } catch (err) {
+        res.status(401).json(err)
+    }
+
 }
