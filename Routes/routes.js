@@ -16,6 +16,8 @@ router.post('/add-card',jwtMiddleware,cardController.addCards)
 // get user cards
 router.get('/user-cards',jwtMiddleware,cardController.getUserCards)
 
+// edit card
+router.put('/card/edit/:cid',jwtMiddleware,cardController.editCard)
 
 
 
