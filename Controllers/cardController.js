@@ -8,7 +8,7 @@ exports.addCards = async (req, res) => {
     const userId = req.payload
     console.log(req.body);
     console.log(userId);
-    
+
     try {
         const existingCard = await cards.findOne({ cardNumber })
         if (existingCard) {
@@ -51,6 +51,17 @@ exports.editCard = async (req, res) => {
         await updateCard.save()
         res.status(200).json(updateCard)
     } catch (err) {
+        res.status(401).json(err)
+    }
+}
+
+// delete card
+exports.removeCard = async (req, res) => {
+    const { cid } = req.params
+    try {
+        const deleteCard = await cards.findByIdAndDelete({ _id: cid })
+        res.status(200).json(deleteCard)
+    } catch {
         res.status(401).json(err)
     }
 }
