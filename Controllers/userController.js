@@ -11,7 +11,7 @@ exports.register = async (req, res) => {
         const existingUser = await users.findOne({ email })
         console.log(existingUser);
         if (existingUser) {
-            res.status(406).json('User already exist.Please login')
+            res.status(406).json('User already exist..Please login')
         } else {
             // add to DB
             const newUser = users({
@@ -39,7 +39,7 @@ exports.login = async (req, res) => {
             console.log(existingUser);
             console.log(token);
         } else {
-            res.status(406).json('invalid email')
+            res.status(406).json('Invalid email / password')
         }
     } catch (err) {
         res.status(401).json(err)
