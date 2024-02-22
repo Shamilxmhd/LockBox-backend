@@ -14,7 +14,7 @@ lbServer.use(express.json())
 lbServer.use(router)
 lbServer.use('/uploads',express.static('./uploads'))
 
-const PORT = 3000
+const PORT = 3000 || process.env.PORT
 lbServer.listen(PORT, () => {
     console.log(`LOCKBOX STARTED AT ${PORT}`);
 })
