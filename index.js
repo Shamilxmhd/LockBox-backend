@@ -6,13 +6,11 @@ const lbServer = express()
 require('./DB/connection')
 
 
-
-
 lbServer.use(cors())
 // middlewear
 lbServer.use(express.json())
 lbServer.use(router)
-lbServer.use('/uploads',express.static('./uploads'))
+
 
 const PORT = 3000 || process.env.PORT
 lbServer.listen(PORT, () => {

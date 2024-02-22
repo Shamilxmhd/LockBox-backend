@@ -3,7 +3,6 @@ const router = express.Router()
 const userController = require('../Controllers/userController')
 const cardController = require('../Controllers/cardController')
 const jwtMiddleware = require('../Middlewares/jwtMiddleware')
-const multerConfig = require('../Middlewares/multerMiddleware')
 const identityController = require('../Controllers/identityController')
 
 // register

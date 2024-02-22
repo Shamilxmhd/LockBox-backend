@@ -10,20 +10,19 @@ const cardScheama = new mongoose.Schema({
         required: true
     },
     cardNumber: {
-        type: String,
-        required: true
+        type: String
+
     },
     month: {
-        type: String,
-        required: true
+        type: String
+
     },
     year: {
-        type: String,
-        required: true
+        type: String
     },
     cvv: {
-        type: String,
-        required: true
+        type: String
+
     },
     userId: {
         type: String,

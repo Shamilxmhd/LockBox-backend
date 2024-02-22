@@ -25,7 +25,7 @@ exports.addCards = async (req, res) => {
     }
 }
 
-// get userCards
+// get Cards
 exports.getUserCards = async (req, res) => {
     const userId = req.payload
     try {
@@ -55,7 +55,7 @@ exports.editCard = async (req, res) => {
     }
 }
 
-// delete card
+// delete cards
 exports.removeCard = async (req, res) => {
     const { cid } = req.params
     try {

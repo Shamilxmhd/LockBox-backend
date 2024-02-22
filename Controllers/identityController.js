@@ -23,7 +23,7 @@ exports.addIdentities = async (req, res) => {
     }
 }
 
-// get user identities
+// get  identities
 exports.getUserIdentities = async (req, res) => {
     const userId = req.payload
     try {
