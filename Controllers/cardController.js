@@ -4,7 +4,7 @@ const cards = require("../Model/cardModel");
 // add cards
 exports.addCards = async (req, res) => {
     console.log("Inside Add Card API");
-    const { itemName, cardholderName, cardNumber, month, year, cvv } = req.body
+    const { itemName, cardholderName, cardNumber, month, year, cvv,createdAt } = req.body
     const userId = req.payload
     console.log(req.body);
     console.log(userId);
@@ -15,7 +15,7 @@ exports.addCards = async (req, res) => {
             res.status(406).json("Card Details Already exists!! please upload another...")
         } else {
             const newCard = new cards({
-                itemName, cardholderName, cardNumber, month, year, cvv, userId
+                itemName, cardholderName, cardNumber, month, year, cvv, userId,createdAt
             })
             await newCard.save()
             res.status(200).json(newCard)

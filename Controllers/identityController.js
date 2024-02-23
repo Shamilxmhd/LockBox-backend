@@ -3,7 +3,7 @@ const identities = require('../Model/identityModel')
 // add identities
 exports.addIdentities = async (req, res) => {
     console.log("Inside Add Identity API");
-    const { itemName, firstName, lastName, username, email, company, phone, passportNumber, licenseNumber, address, city, state, postalCode, country } = req.body
+    const { itemName, firstName, lastName, username, email, company, phone, passportNumber, licenseNumber, address, city, state, postalCode, country,createdAt } = req.body
     const userId = req.payload
     console.log(req.body);
     console.log(userId);
@@ -13,7 +13,7 @@ exports.addIdentities = async (req, res) => {
             res.status(406).json('Identity Details Already exists!! please upload another...')
         } else {
             const newIdentity = new identities({
-                itemName, firstName, lastName, username, email, company, phone, passportNumber, licenseNumber, address, city, state, postalCode, country, userId
+                itemName, firstName, lastName, username, email, company, phone, passportNumber, licenseNumber, address, city, state, postalCode, country, userId,createdAt
             })
             await newIdentity.save()
             res.status(200).json(newIdentity)
